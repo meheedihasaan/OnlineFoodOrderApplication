@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Order Form</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h2 class="text-center">Order Your Menu</h2>
+		<div class="text-center">
+			<img class="rounded mt-3" th:src="@{/images/food.jpg}" alt="" />
+		</div>
+		
+		<div class="row py-5">
+			<div class="col-md-8 offset-md-2">
+				<form method="POST" th:action="@{/orders}" th:object="${menuOrder}">
+					<div class="card p-3">
+						<div class="card-body">
+							<h3 class="text-center mb-3">Delivery my order masterpieces to...</h3>
+							
+							<div class="form-group">
+								<label for="deliveryName">Name</label>
+								<input 
+									type="text"
+									class="form-control"
+									th:field="*{deliveryName}"
+									th:classappend="${#fields.hasErrors('deliveryName') ? 'is-invalid' : ''}"
+									placeholder="Enter Name"
+									 />
+								<p class="m-0 p-0 invalid-feedback" th:each="error : ${#fields.errors('deliveryName')}" th:text="${error}"></span>
+							</div>							
+							<div class="form-group mt-3">
+								<label for="deliveryStreet">Street</label>
+								<input 
+									type="text"
+									class="form-control"
+									th:field="*{deliveryStreet}"
+									th:classappend="${#fields.hasErrors('deliveryStreet') ? 'is-invalid' : ''}"
+									placeholder="Enter Street"
+									 />
+								<p class="m-0 p-0 invalid-feedback" th:each="error : ${#fields.errors('deliveryStreet')}" th:text="${error}"></span>
+							</div>							
+							<div class="form-group mt-3">
+								<label for="deliveryCity">City</label>
+								<input 
+									type="text"
+									class="form-control"
+									th:field="*{deliveryCity}"
+									th:classappend="${#fields.hasErrors('deliveryCity') ? 'is-invalid' : ''}"
+									placeholder="Enter City"
+									 />
+								<p class="m-0 p-0 invalid-feedback" th:each="error : ${#fields.errors('deliveryCity')}" th:text="${error}"></p>
+							</div>
+							<div class="form-group mt-3">
+								<label for="deliveryState">State</label>
+								<input 
+									type="text"
+									class="form-control"
+									th:field="*{deliveryState}"
+									th:classappend="${#fields.hasErrors('deliveryState') ? 'is-invalid' : ''}"
+									placeholder="Enter State"
+									 />
+								<p class="m-0 p-0 invalid-feedback" th:each="error : ${#fields.errors('deliveryState')}" th:text="${error}"></span>
+							</div>
+							<div class="form-group mt-3">
+								<label for="deliveryZip">Zip Code</label>
+								<input 
+									type="text"
+									class="form-control"
+									th:field="*{deliveryZip}"
+									th:classappend="${#fields.hasErrors('deliveryZip') ? 'is-invalid' : ''}"
+									placeholder="Enter Zip Code"
+									 />
+								<p class="p-0 m-0 invalid-feedback" th:each="error : ${#fields.errors('deliveryZip')}" th:text="${error}"></p>
+							</div>
+							
+							<h3 class="text-center mt-4">Here's how I'll pay...</h3>
+							<div class="form-group mt">
+								<label for="ccNumber">Credit Card #</label>
+								<input 
+									type="text"
+									class="form-control"
+									th:field="*{ccNumber}"
+									th:classappend="${#fields.hasErrors('ccNumber') ? 'is-invalid' : ''}"
+									placeholder="Enter Credit Card"
+									 />
+								<p class="p-0 m-0 invalid-feedback" th:each="error : ${#fields.errors('ccNumber')}" th:text="${error}"></p>
+							</div>
+							<div class="form-group mt-3">
+								<label for="ccExpiration">Expiration</label>
+								<input 
+									type="text"
+									class="form-control"
+									th:field="*{ccExpiration}"
+									th:classappend="${#fields.hasErrors('ccExpiration') ? 'is-invalid' : ''}"
+									placeholder="Enter Expiration Date"
+									 />
+								<p class="m-0 p-0 invalid-feedback" th:each="error : ${#fields.errors('ccExpiration')}" th:text="${error}"></p>
+							</div>
+							<div class="form-group mt-3">
+								<label for="ccCVV">CVV</label>
+								<input 
+									type="text"
+									class="form-control"
+									th:field="*{ccCVV}"
+									th:classappend="${#fields.hasErrors('ccCVV') ? 'is-invalid' : ''}"
+									placeholder="Enter CVV"
+									 />
+								<p class="m-0 p-0 invalid-feedback" th:each="error : ${#fields.errors('ccCVV')}" th:text="${error}"></p>
+							</div>
+							
+							<div class="form-group mt-3">
+								<input class="btn btn-primary" type="submit" value="Submit Order" />
+							</div>							
+							
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
