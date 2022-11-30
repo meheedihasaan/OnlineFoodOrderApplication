@@ -3,7 +3,7 @@ DELETE FROM Menu;
 DELETE FROM Menu_Order;
 DELETE FROM Ingredient;
 
-//Insert Data into Ingredient Table
+/*Insert Data into Ingredient Table*/
 INSERT INTO Ingredient (id, name, type) VALUES ('FLTO', 'Flour Tortilla', 'WRAP');
 INSERT INTO Ingredient (id, name, type) VALUES ('COTO', 'Corn Tortilla', 'WRAP');
 INSERT INTO Ingredient (id, name, type) VALUES ('GRBR', 'Ground Beef', 'PROTEIN');

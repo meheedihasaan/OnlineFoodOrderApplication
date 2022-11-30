@@ -93,7 +93,7 @@ public class DesignMenuController {
 		}
 		
 		menuOrder.addMenu(menu);
-		System.out.println(menu);
+		System.out.println(menu.toString());
 		return "redirect:/orders/current";
 	}
 	

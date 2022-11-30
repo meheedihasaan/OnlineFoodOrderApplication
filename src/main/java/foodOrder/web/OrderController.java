@@ -1,5 +1,7 @@
 package foodOrder.web;
 
+import java.util.Date;
+
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,9 @@ import lombok.extern.slf4j.Slf4j;
 public class OrderController {
 	
 	private OrderRepository orderRepo;
+	public OrderController(OrderRepository orderRepo) {
+		this.orderRepo = orderRepo;
+	}
 
 	@GetMapping("/current")
 	public String orderForm(@ModelAttribute("menuOrder") MenuOrder menuOrder) {
@@ -33,6 +38,9 @@ public class OrderController {
 		if(errors.hasErrors()) {
 			return "orderForm";
 		}
+		
+		menuOrder.setPlacedAt(new Date());
+		
 		orderRepo.save(menuOrder);
 		
 		System.out.println(menuOrder.toString());
