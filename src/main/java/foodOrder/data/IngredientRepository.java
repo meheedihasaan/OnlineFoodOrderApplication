@@ -13,9 +13,9 @@ public interface IngredientRepository extends CrudRepository<Ingredient, String>
 	List<Ingredient> findAll();
 	
 	//Search an ingredient by id
-	//Optional<Ingredient> findById(String id);
+	Optional<Ingredient> findById(String id);
 	
 	//Save Ingredient
-	//Ingredient save(Ingredient ingredient);
+	Ingredient save(Ingredient ingredient);
 	
 }
